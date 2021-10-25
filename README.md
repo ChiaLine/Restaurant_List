@@ -1,4 +1,4 @@
-# :) 我的餐廳清單 :)
+# 我的餐廳清單
 ---
 ![Index page about Restaurant List](./public/image/snapshot.png)
 
