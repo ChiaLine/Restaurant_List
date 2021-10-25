@@ -26,11 +26,16 @@ app.get('/restaurants/:restaurants_id', (req, res) => {
 
 // 用 Query String 打造 search 功能
 app.get('/search', (req, res) => {
+  const keyword = req.query.keyword.trim()
   const restaurants = restaurantList.results.filter((restaurant) => {
-    return (restaurant.name.toLowerCase().includes(req.query.keyword.toLowerCase().trim()) || restaurant.category.toLowerCase().includes(req.query.keyword.toLowerCase().trim()))
+    return (restaurant.name.toLowerCase().includes(keyword.toLowerCase()) || restaurant.category.toLowerCase().includes(keyword.toLowerCase()))
   })
 
-  res.render('index', { restaurants, keyword: req.query.keyword.trim() })
+  if (!restaurants.length){
+    res.render('nosearch', { keyword })
+  } 
+
+  res.render('index', { restaurants, keyword })
 })
 
 app.listen(port, () => {
