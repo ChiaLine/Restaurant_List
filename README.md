@@ -20,7 +20,7 @@
 3. 在本地開啟之後，透過終端機進入資料夾，輸入：
    
    ```
-   npm install express
+   npm install
    ```
    
 4. 安裝完畢後，繼續輸入：
